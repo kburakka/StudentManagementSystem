@@ -1,0 +1,75 @@
+﻿@model IList<MVCLOGIN2.Models.cours>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+   <div class="col-lg-3" style="margin-left:3rem">
+    <div class="card hovercard" style="margin-top:5rem">
+        <div class="cardheader">
+        </div>
+        <div class="avatar">
+            <img alt="" src="@Session["stufoto"]">
+        </div>
+        <div class="info">
+            <div class="title">
+                <h2>@Session["StudentName"] </h2>
+            </div>
+            <div class="desc">
+                <h4>@Session["StudentNumber"]</h4>
+            </div>
+            <div class="desc"><h4>@Session["StudentDep"]</h4></div>
+            <div class="desc"><h4>@Session["StudentFac"]</h4></div>
+            <div class="desc"><h4>Advisor: @Session["stuinst"]</h4></div>
+        </div>
+    </div>
+       <p></p>
+    <div class="list-group">
+        <a href="@Url.Action("Schedule","Kullanicilar")" class="list-group-item"><span class="glyphicon glyphicon-arrow-right"></span>Schedule</a>
+        <a href="@(Session["curriculum"])" target="_blank" class="list-group-item"><span class="glyphicon glyphicon-arrow-right"></span>Curriculum</a>
+        <a href="http://kutuphane.kemerburgaz.edu.tr/" target="_blank" class="list-group-item"><span class="glyphicon glyphicon-arrow-right"></span>Library</a>
+        <a href="@Url.Action("CourseRegistration","Kullanicilar")" class="list-group-item"><span class="glyphicon glyphicon-arrow-right"></span>Course Registration</a>
+        <a href="@Url.Action("Exam","Kullanicilar")" class="list-group-item"><span class="glyphicon glyphicon-arrow-right"></span>Exam Schedule</a>
+        <a href="@Url.Action("Grades","Kullanicilar")" class="list-group-item"><span class="glyphicon glyphicon-arrow-right"></span>Grade Status</a>
+        <a href="@Url.Action("Message","Kullanicilar")" class="list-group-item"><span class="glyphicon glyphicon-arrow-right"></span>Message</a>
+        <a href="/kullanicilar/forum" class="list-group-item"><span class="glyphicon glyphicon-arrow-right"></span>Forum</a>
+    </div>
+</div>
+
+
+
+
+<div class="row">
+    
+       
+        
+
+        
+        <div class="col-lg-5">
+            <h2>Forum</h2>
+            @foreach (var item in Model)
+            {
+                <div class="list-group">
+
+                    <a href="@Url.Action("Comment", "Kullanicilar", new { @id = item.courseID })" class="list-group-item">
+                        <span class="glyphicon glyphicon-arrow-right"></span>
+                        @item.coursecode @item.coursename
+                    </a>
+
+
+
+                </div>
+
+
+
+            }
+        </div>
+
+
+
+    </div>
+
+
+
+

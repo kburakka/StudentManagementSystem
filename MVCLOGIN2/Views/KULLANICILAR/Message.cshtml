@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Message";
+}
+    @Html.Partial("_StudentInfo")
+    <div class="row">
+    <div class="container">
+       
+        <div class="row">
+            <div class="container">
+                
+
+
+                <div class="list-group col-lg-2" style="margin-top:5rem; margin-left:5rem">
+                    <a href="/KULLANICILAR/NewMessage" class="list-group-item">
+                        New Message
+                    </a>
+                </div>
+                <div class="list-group col-lg-2" style="margin-top:5rem ">
+                    <a href="/KULLANICILAR/Inbox" class="list-group-item">
+                        Inbox
+                    </a>
+                </div>
+                <div class="list-group col-lg-2" style="margin-top:5rem">
+                    <a href="/KULLANICILAR/Sent" class="list-group-item">
+                        Sent
+                    </a>
+                </div>
+
+              </div>
+        </div>  
+
+    </div>
+</div>
+
+<div class="col-lg-12" style="margin-top:3rem">
+    @Html.Partial("_LeftBar")
+
+</div>
+
+

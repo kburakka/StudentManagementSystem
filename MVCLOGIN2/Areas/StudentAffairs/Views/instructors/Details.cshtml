@@ -1,0 +1,67 @@
+﻿@model MVCLOGIN2.Models.instructor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 style="text-align:center">Details</h2>
+
+
+<div>
+        
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.instfullname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.instfullname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.instmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.instmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.instroom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.instroom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.instofficehours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.instofficehours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.instusername)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.instusername)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.instpassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.instpassword)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("<- Back to List", "Index", null, new { @class = " btn btn-success" })
+    @Html.ActionLink("Edit", "Edit", new { id = Model.instructorID }, new { @class = "btn btn-warning" })
+</p>

@@ -1,0 +1,52 @@
+﻿@model MVCLOGIN2.Models.grade
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 style="margin-left:40rem">Details</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.finalpont)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.finalpont)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.letterpoint)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.letterpoint)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cours.coursename)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cours.coursename)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.student.stufullname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.student.stufullname)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("<- Back to List", "Index", null, new { @class = " btn btn-success" })
+    @Html.ActionLink("Edit", "Edit", new { id = Model.gradeID }, new { @class = "btn btn-warning" })
+
+
+</p>

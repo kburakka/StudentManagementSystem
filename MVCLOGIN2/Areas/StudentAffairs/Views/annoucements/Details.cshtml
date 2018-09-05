@@ -1,0 +1,31 @@
+﻿@model MVCLOGIN2.Models.annoucement
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 style="text-align:center">Details</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.text)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.text)
+        </dd>
+
+  
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("<- Back to List", "Index", null, new { @class = " btn btn-success" })
+    @Html.ActionLink("Edit", "Edit", new { id = Model.annoucementID }, new { @class = "btn btn-warning" }) 
+   
+    
+
+</p>

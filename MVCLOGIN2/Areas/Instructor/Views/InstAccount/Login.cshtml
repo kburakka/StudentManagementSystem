@@ -1,0 +1,40 @@
+﻿@model MVCLOGIN2.Models.instructor
+@{
+    ViewBag.Title = "Login";
+}
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        h3 {
+            color: white;
+            font-size: 13px;
+        }
+    </style>
+    @Styles.Render("~/Content/login.css")
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div class="login">
+        <h1>ASIS Instructor</h1>
+        @using (Html.BeginForm("Login", "InstAccount", FormMethod.Post))
+        {
+            <h3>@ViewBag.Message</h3>
+            @Html.AntiForgeryToken()
+            @Html.TextBoxFor(a => a.instusername, new { @placeholder = "Username", @required = "required" })
+            @Html.TextBoxFor(a => a.instpassword, new { @type = "password", @placeholder = "Password", @required = "required" })
+            <button type="submit" class="btn btn-primary btn-block btn-large">LOGIN</button>
+        }
+    </div>
+</body>
+</html>
+
+

@@ -1,0 +1,126 @@
+﻿@model IEnumerable<MVCLOGIN2.Models.cours>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="text-align:center">Courses</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-info btn-large" })
+</p>
+
+<table class="table" style="margin-right:50rem">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.room)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.coursecode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.coursename)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ects)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.section)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.prerequisites)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.day)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.coursetype)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.semesterno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.department.depname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.instructor.instfullname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.examdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.examtime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.coursestart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.courseend)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.room)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.coursecode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.coursename)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ects)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.section)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.prerequisites)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.day)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.coursetype)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.semesterno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.department.depname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.instructor.instfullname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quota)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.examdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.examtime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.coursestart)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.courseend)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.courseID }, new { @class = "btn btn-warning btn-xs" })
+            @Html.ActionLink("Details", "Details", new { id = item.courseID }, new { @class = "btn btn-primary btn-xs" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.courseID }, new { @class = "btn btn-danger btn-xs" })
+        </td>
+    </tr>
+}
+
+</table>

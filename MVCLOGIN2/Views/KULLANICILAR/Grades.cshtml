@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MVCLOGIN2.Models.grade>
+@{
+    ViewBag.Title = "Grades";
+}
+
+
+
+@Html.Partial("_StudentInfo")
+<div class="row">
+    <div class="container">
+      
+        <div class="row">
+            <div class="container">  
+                <div class="container col-lg-6" style="margin-left:5rem">
+                    <h2>Grades</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Course Code</th>
+                                <th>Course Name</th>
+                                <th>Final Point</th>
+                                <th>Letter Point</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach(var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.cours.coursecode</td>
+                                    <td>@item.cours.coursename</td>
+                                    <td>@item.finalpont</td>
+                                    <td>@item.letterpoint</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="col-lg-12" style="margin-top:3rem">
+    @Html.Partial("_LeftBar")
+
+
+</div>
+

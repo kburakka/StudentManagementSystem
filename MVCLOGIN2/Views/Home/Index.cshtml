@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="row">
+    
+       @Html.Partial("_StudentInfo")
+       @Html.Partial("_Announcement")
+
+    
+</div>   
+   
+    <div class="col-lg-12" style="margin-top:3rem">
+        @Html.Partial("_LeftBar")
+        @Html.Partial("_LibraryWeather")
+    </div>

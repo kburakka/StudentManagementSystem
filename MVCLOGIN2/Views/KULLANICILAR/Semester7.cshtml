@@ -1,0 +1,101 @@
+﻿@model MVCLOGIN2.Models.CourseTakesModel
+@{
+    ViewBag.Title = "Semester7";
+}
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Course Registration</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="@Url.Action("Semester","Kullanicilar")">Semester 1</a></li>
+            <li><a href="@Url.Action("Semester2","Kullanicilar")">Semester 2</a></li>
+            <li><a href="@Url.Action("Semester3","Kullanicilar")">Semester 3</a></li>
+            <li><a href="@Url.Action("Semester4","Kullanicilar")">Semester 4</a></li>
+            <li><a href="@Url.Action("Semester5","Kullanicilar")">Semester 5</a></li>
+            <li><a href="@Url.Action("Semester6","Kullanicilar")">Semester 6</a></li>
+            <li><a href="@Url.Action("Semester7","Kullanicilar")">Semester 7</a></li>
+            <li><a href="@Url.Action("Semester8","Kullanicilar")">Semester 8</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+
+<div class="list-group">
+    @foreach (var c in Model.Courses)
+    {
+        if (Model.TakeLessons.Count > 0)
+        {
+            if (Model.TakeLessons.Where(t => t.courseID == c.courseID).ToList().Count > 0)
+            {
+                using (Html.BeginForm("RemoveFromCart", "Cart", new { @courseid = c.courseID }, FormMethod.Post))
+                {
+                    <div class="col-lg-1">
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            Delete
+                        </button>
+                    </div>
+
+                }
+            }
+            else
+            {
+                using (Html.BeginForm("AddToCart", "Cart", new { @courseid = c.courseID }, FormMethod.Post))
+                {
+                    <div class="col-lg-1">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fade fa-cart-plus" aria-hidden="true"></i>
+                            Add
+                        </button>
+                    </div>
+                }
+            }
+
+
+        }
+
+        else
+        {
+            using (Html.BeginForm("AddToCart", "Cart", new { @courseid = c.courseID }, FormMethod.Post))
+            {
+                <div class="col-lg-1">
+                    <button type="submit" class="btn btn-success">
+                        <i class="fade fa-cart-plus" aria-hidden="true"></i>
+                        Add
+                    </button>
+                </div>
+            }
+        }
+        <div class="col-lg-3 list-group-item">
+
+            <p style="font-weight:bold"> @c.coursecode @c.coursename</p> <p> </p>
+            <p style="color:brown">Room: @c.room </p>
+            <p style="color:darkgreen"> Time:  @c.day @c.coursestart-@c.courseend</p>
+            <p style="color:crimson"> Prerequisites:  @c.prerequisites </p>
+            <p style="color:blue"> Quota:  @Model.TakeLessons.Where(z => z.courseID == c.courseID).Count()/ @c.Quota </p>
+            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#@c.instructorID">Instructor:  @c.instructor.instfullname</button>
+            <div class="modal fade" id="@c.instructorID" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">@c.instructor.instfullname</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p style="font-weight:bold ; text-decoration:underline">E-mail</p><p> @c.instructor.instmail</p>
+                            <p style="font-weight:bold ; text-decoration:underline">Office Hours</p> <p>@c.instructor.instofficehours</p>
+                            <p style="font-weight:bold ; text-decoration:underline">Room</p> <p>@c.instructor.instroom</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    }
+</div>

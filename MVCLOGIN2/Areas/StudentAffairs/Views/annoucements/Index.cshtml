@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MVCLOGIN2.Models.annoucement>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="text-align:center">Annoucements</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create" , null, new { @class = "btn btn-info btn-large" })
+</p>
+
+<p></p>
+<p></p>
+
+<table class="table">
+    <tr>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.text)
+        </td>
+   
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.annoucementID }, new { @class = "btn btn-warning btn-xs" })
+            @Html.ActionLink("Details", "Details", new { id = item.annoucementID }, new { @class = "btn btn-primary btn-xs" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.annoucementID }, new { @class = "btn btn-danger btn-xs" })
+        </td>
+    </tr>
+}
+
+</table>

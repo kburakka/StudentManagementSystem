@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Final Year Project</title>
+
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar-fixed-top navbar navbar-inverse bg-inverse">
+
+        <div class="container">
+
+            <div class="navbar-header ">
+
+                <a class="navbar-brand align-top " href="#">
+                    <img src="http://www.hangiuniversite.com/resimler/universiteler/258.png" width="60" height="40" class="d-inline-block align-top pull-left" alt="">
+
+                </a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="nav navbar-nav" style="margin-top:1rem">
+                    @Html.ActionLink("ALTINBAS UNIVERSITY", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+            </div>
+            <div class="navbar-collapse collapse">
+
+                <div class="nav navbar-nav" style="margin-top:1.5rem">
+
+                    <a class="nav navbar-nav " target="_blank" style="color:#A9A9A9" href="https://login.microsoftonline.com/common/oauth2/authorize?client_id=00000002-0000-0ff1-ce00-000000000000&redirect_uri=https%3a%2f%2foutlook.office365.com%2fowa%2f&resource=00000002-0000-0ff1-ce00-000000000000&response_mode=form_post&response_type=code+id_token&scope=openid&msafed=0&client-request-id=a19f3be8-f03b-4965-89c7-dcb9f02f2359&protectedtoken=true&nonce=636470449587604044.0d2ca387-ff3c-4b7a-88fe-3c78f0f3872b&state=DYtBDoAwCASpxudgScFCn0OrXD36fTnMZpLNFADYky0plAPauYuSyLhMO0naSXdbzqYYwQtlqqNZPMhLLSjyabNke9T38_oD" )">
+                        <span class="glyphicon glyphicon-envelope"></span>
+                        OUTLOOK
+
+                    </a>
+
+                </div>
+
+                <ul class="nav navbar-nav">
+
+                    <li style="margin-left:2rem">@Html.ActionLink(" MAINPAGE ", "Index", "Home", new { @class = "glyphicon glyphicon-th-large" })</li>
+         
+                    <li style="margin-left:2rem">@Html.ActionLink(" HELP ", "Contact", "Home", new { @class = "glyphicon glyphicon-question-sign" })</li>
+                </ul>
+
+                @* giriş yaptıgımız yer  *@
+                <ul class="nav navbar-nav " style="margin-left:2rem">
+                    @if (Session["USERNAME"] == null)
+                    {
+                        <li> @Html.ActionLink("Login", "Login", "Account")</li>
+                    }
+                    else
+                    {
+                        <li> @Html.ActionLink("Logout", "Logout", "Account")</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>   
+            @RenderBody()  
+            @Scripts.Render("~/Scripts/jquery-3.2.1.min.js")
+            @Scripts.Render("~/Scripts/bootstrap.min.js")
+            @RenderSection("scripts", required: false)
+</body>
+</html>

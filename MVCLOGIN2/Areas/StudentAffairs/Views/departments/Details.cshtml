@@ -1,0 +1,40 @@
+﻿@model MVCLOGIN2.Models.department
+
+@{
+    ViewBag.Title = "Details";
+}
+<h2 style="text-align:center">Details</h2>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.depname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.depname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.curriculum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.curriculum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.faculty.facultyname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.faculty.facultyname)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("<- Back to List", "Index", null, new { @class = " btn btn-success" })
+    @Html.ActionLink("Edit", "Edit", new { id = Model.departmentID }, new { @class = "btn btn-warning" })
+</p>

@@ -1,0 +1,88 @@
+﻿@model IEnumerable<MVCLOGIN2.Models.message>
+@{
+    ViewBag.Title = "Sent";
+}
+
+
+@Html.Partial("_StudentInfo")
+
+<div class="row">
+    <div class="container">
+        
+        <div class="row">
+            <div class="container">
+
+
+
+                <div class="list-group col-lg-2" style="margin-top:5rem; margin-left:5rem">
+                    <a href="/KULLANICILAR/NewMessage" class="list-group-item">
+                        New Message
+                    </a>
+                </div>
+                <div class="list-group col-lg-2" style="margin-top:5rem ">
+                    <a href="/KULLANICILAR/Inbox" class="list-group-item">
+                        Inbox
+                    </a>
+                </div>
+                <div class="list-group col-lg-2" style="margin-top:5rem">
+                    <a href="/KULLANICILAR/Sent" class="list-group-item">
+                        Sent
+                    </a>
+                </div>
+                <div class="container col-lg-6" style="margin-left:5rem">
+                    <h2>Inbox</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>From</th>
+                                <th>About</th>
+                                <th>Date/Time</th>
+                                <th>Message</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.fromname</td>
+                                    <td>@item.about</td>                         
+                                    <td>@item.addedtime</td>
+                                    <td>
+                                        <button type="button" class="btn btn-block btn-sm" data-toggle="modal" data-target="#@item.messageID">Show Message  </button>
+                                        <div class="modal fade" id="@item.messageID" role="dialog">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p style="font-weight:bold ; text-decoration:underline">Message</p>
+                                                        <p class="test"> @item.text</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="col-lg-12" style="margin-top:3rem">
+    @Html.Partial("_LeftBar")
+
+
+</div>
+

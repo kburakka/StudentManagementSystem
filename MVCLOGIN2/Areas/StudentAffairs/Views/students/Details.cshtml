@@ -1,0 +1,85 @@
+﻿@model MVCLOGIN2.Models.student
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 style="text-align:center">Details</h2>
+
+<div>
+    <h4>student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stufullname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stufullname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.department.depname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.department.depname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.faculty.facultyname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.faculty.facultyname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.instructor.instfullname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.instructor.instfullname)
+        </dd>
+
+    </dl>
+</div>
+<p>
+@Html.ActionLink("<- Back to List", "Index", null, new { @class = " btn btn-success" })
+@Html.ActionLink("Edit", "Edit", new { id = Model.studentID }, new { @class = "btn btn-warning" })
+
+
+
+</p>
